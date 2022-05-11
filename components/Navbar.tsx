@@ -5,7 +5,10 @@ const Navbar: FC = () => {
   return (
     <div>
       <Link href="/about">
-        <a>About</a>
+        <button>About</button>
+      </Link>
+      <Link href="/todo/intro">
+        <button>go todo</button>
       </Link>
     </div>
   );
