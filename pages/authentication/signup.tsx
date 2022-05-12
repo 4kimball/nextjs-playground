@@ -22,9 +22,11 @@ const Signup: NextPage = () => {
 
   return (
     <div>
+      <h2>Signup</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
+          placeholder="아이디"
           value={username}
           onChange={(e) => {
             setUserName(e.target.value);
@@ -32,11 +34,13 @@ const Signup: NextPage = () => {
         />
         <input
           type="password"
+          placeholder="비밀번호"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <input
           type="password"
+          placeholder="비밀번호 확인"
           value={passwordConfirmation}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
         />

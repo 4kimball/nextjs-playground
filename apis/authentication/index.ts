@@ -1,10 +1,23 @@
 import axios from "axios";
 
-const BASE_URL = "http://127.0.0.1:8000/api/v1/accounts/";
+const BASE_URL = "http://127.0.0.1:8000/api/v1/";
 
-export const signup = async (credentials: Credentials) => {
+type LoginInfo = {
+  username: string;
+  password: string;
+};
+
+export const signup = async (credentials: SignupInfo) => {
   const response = await axios
-    .post(BASE_URL + "signup/", credentials)
+    .post(BASE_URL + "accounts/signup/", credentials)
+    .then((res) => {
+      console.log(res);
+    });
+};
+
+export const login = async (credentials: LoginInfo) => {
+  const response = await axios
+    .post(BASE_URL + "token/", credentials)
     .then((res) => {
       console.log(res);
     });
