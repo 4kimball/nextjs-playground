@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import { useState } from "react";
+import Router from "next/router";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
@@ -27,6 +28,7 @@ const Login: NextPage = () => {
     };
     login(credentials).then((res) => {
       localStorage.setItem("accessToken", res.data.access);
+      Router.push("/");
     });
   };
   return (
@@ -52,6 +54,7 @@ const Login: NextPage = () => {
           onChange={(e) => handleChangeUserName(e.target.value)}
         />
         <TextField
+          type="password"
           label="비밀번호"
           color="primary"
           value={password}
