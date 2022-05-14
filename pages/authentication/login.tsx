@@ -6,6 +6,8 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 import { login } from "../../apis/authentication";
+import withAuthenticated from "../../hoc/withAuthenticated";
+
 const Login: NextPage = () => {
   const [username, setUserName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -23,7 +25,9 @@ const Login: NextPage = () => {
       username,
       password,
     };
-    login(credentials);
+    login(credentials).then((res) => {
+      localStorage.setItem("accessToken", res.data.access);
+    });
   };
   return (
     <Box
@@ -61,4 +65,4 @@ const Login: NextPage = () => {
   );
 };
 
-export default Login;
+export default withAuthenticated(Login);

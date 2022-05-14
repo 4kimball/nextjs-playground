@@ -16,9 +16,5 @@ export const signup = async (credentials: SignupInfo) => {
 };
 
 export const login = async (credentials: LoginInfo) => {
-  const response = await axios
-    .post(BASE_URL + "token/", credentials)
-    .then((res) => {
-      console.log(res);
-    });
+  return await axios.post(BASE_URL + "token/", credentials);
 };

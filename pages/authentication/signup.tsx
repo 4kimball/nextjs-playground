@@ -2,6 +2,7 @@ import { useState } from "react";
 import type { NextPage } from "next";
 
 import { signup } from "../../apis/authentication";
+import withAuthenticated from "../../hoc/withAuthenticated";
 
 const Signup: NextPage = () => {
   const [username, setUserName] = useState<string>("");
@@ -50,4 +51,4 @@ const Signup: NextPage = () => {
   );
 };
 
-export default Signup;
+export default withAuthenticated(Signup);
