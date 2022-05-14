@@ -1,6 +1,9 @@
 import type { NextPage } from "next";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+
+import Box from "@mui/material/Box";
+
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -18,7 +21,18 @@ const Home: NextPage = () => {
     <div className={styles.container}>
       <h2>Home</h2>
       {isLogin ? (
-        <button onClick={handleClickLogOut}>로그아웃</button>
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "space-around",
+          }}
+        >
+          <Link href="/movies">
+            <a>Movies</a>
+          </Link>
+          <button onClick={handleClickLogOut}>로그아웃</button>
+        </Box>
       ) : (
         <div
           style={{
