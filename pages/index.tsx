@@ -1,9 +1,7 @@
 import type { NextPage } from "next";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+
 import Box from "@mui/material/Box";
 
 import styles from "../styles/Home.module.css";
@@ -56,26 +54,3 @@ const Home: NextPage = ({ posts }) => {
 };
 
 export default Home;
-
-export const getStaticProps = async () => {
-  const files = fs.readdirSync(path.join("posts"));
-
-  const posts = files.map((filename) => {
-    const markdownWithMeta = fs.readFileSync(
-      path.join("posts", filename),
-      "utf-8"
-    );
-    const { data: frontMatter } = matter(markdownWithMeta);
-
-    return {
-      frontMatter,
-      slug: filename.split(".")[0],
-    };
-  });
-
-  return {
-    props: {
-      posts,
-    },
-  };
-};
