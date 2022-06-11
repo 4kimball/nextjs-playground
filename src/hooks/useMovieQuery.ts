@@ -3,9 +3,9 @@ import { getMovies } from "../apis";
 
 const fetcher = (url: string) => getMovies(url);
 
-const useMovies = () => {
-  const { data, error } = useSWR("movies/", fetcher);
+const useMovieQuery = (id: string) => {
+  const { data, error } = useSWR(`movies/detail/${id}/`, fetcher);
   return { data, error };
 };
 
-export default useMovies;
+export default useMovieQuery;
