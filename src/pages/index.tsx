@@ -6,9 +6,9 @@ import Box from "@mui/material/Box";
 
 import styles from "../styles/Home.module.css";
 
-const Home: NextPage = ({ posts }) => {
+const Home: NextPage = () => {
   const [isLogin, setIsLogin] = useState(false);
-  console.log(posts);
+
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
     accessToken ? setIsLogin(true) : setIsLogin(false);
