@@ -8,7 +8,6 @@ const StyledBox = styled(Box)({
     from: {
       visibility: "hidden",
       opacity: 0,
-      transform: "scale(1)",
     },
     to: {
       opacity: 1,
@@ -16,28 +15,37 @@ const StyledBox = styled(Box)({
       visibility: "visible",
     },
   },
-  visibility: "hidden",
-  width: "100px",
+
+  width: "50px",
   display: "flex",
   justifyContent: "space-around",
   "& .first-circle": {
-    animation: "bounce 1.5s infinite linear",
+    animation: "bounce 2.4s infinite linear",
   },
   "& .second-circle": {
-    animation: "bounce 1.5s infinite linear",
-    animationDelay: "0.5s",
+    animation: "bounce 2.4s infinite linear",
+    animationDelay: "0.8s",
   },
   "& .third-circle": {
-    animation: "bounce 1.5s infinite linear",
-    animationDelay: "1s",
+    animation: "bounce 2.4s infinite linear",
+    animationDelay: "1.6s",
   },
 });
 const Wave: FC = () => {
   return (
     <StyledBox sx={{}}>
-      <CircleIcon sx={{ color: "#388E3B" }} className="first-circle" />
-      <CircleIcon sx={{ color: "#4CAF50" }} className="second-circle" />
-      <CircleIcon sx={{ color: "#81C784" }} className="third-circle" />
+      <CircleIcon
+        sx={{ color: "#388E3B", width: "8px", height: "8px" }}
+        className="first-circle"
+      />
+      <CircleIcon
+        sx={{ color: "#4CAF50", width: "8px", height: "8px" }}
+        className="second-circle"
+      />
+      <CircleIcon
+        sx={{ color: "#81C784", width: "8px", height: "8px" }}
+        className="third-circle"
+      />
     </StyledBox>
   );
 };
