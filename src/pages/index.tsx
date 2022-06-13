@@ -5,6 +5,7 @@ import Link from "next/link";
 import Box from "@mui/material/Box";
 
 import styles from "../styles/Home.module.css";
+import Wave from "../components/Wave";
 
 const Home: NextPage = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -20,6 +21,7 @@ const Home: NextPage = () => {
   };
   return (
     <div className={styles.container}>
+      <Wave />
       <h2>Home</h2>
       {isLogin ? (
         <Box
